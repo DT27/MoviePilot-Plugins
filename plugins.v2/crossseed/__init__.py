@@ -296,7 +296,7 @@ class CrossSeed(_PluginBase):
             site_name_key_map = dict()
             site_name_gap_map = dict()
             for site_key in self._token.strip().split("\n"):
-                site_key_arr = re.split(r"[\s:：]+", site_key.strip())
+                site_key_arr = [s.strip() for s in re.split(r"[:：]", line) if s.strip()]
                 site_name = site_key_arr[0]
                 if len(site_key_arr) > 1:
                     site_name_key_map[site_name] = site_key_arr[1]
